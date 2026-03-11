@@ -6,130 +6,282 @@
 <title>Angel Mia Daguinotas Portfolio</title>
 
 <style>
-    /* --- GENERAL STYLES --- */
-    body { margin:0; font-family: 'Arial', sans-serif; background:#f4f4f4; color:#333; }
-    a { text-decoration:none; color:inherit; }
-    
-    /* --- HEADER --- */
-    header { background:#2c3e50; color:white; text-align:center; padding:50px 20px; }
-    header img { width:150px; border-radius:50%; border:3px solid #fff; margin-bottom:15px; }
-    header h1 { margin:10px 0 5px; font-size:2em; }
-    header p { margin:0; font-size:1.1em; }
+/* --- GENERAL STYLES --- */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f4f8fc;
+  color: #333;
+}
+a { text-decoration: none; color: inherit; }
 
-    /* --- NAVIGATION --- */
-    nav { display:flex; justify-content:center; background:#34495e; }
-    nav a { padding:15px 20px; color:white; font-weight:bold; transition:0.3s; }
-    nav a:hover { background:#1abc9c; }
+/* --- HEADER --- */
+header {
+  background: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+header img {
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 15px;
+}
+header h1 { margin: 10px 0 5px; font-size: 2.2em; }
+header p { margin: 0; font-size: 1.1em; color: #cbd5e1; }
 
-    /* --- SECTIONS --- */
-    section { max-width:900px; margin:30px auto; padding:20px; background:#fff; border-radius:10px; }
-    section h2 { border-bottom:2px solid #1abc9c; padding-bottom:5px; }
+/* --- NAVIGATION --- */
+nav {
+  display: flex;
+  justify-content: center;
+  background: #3b82f6;
+  flex-wrap: wrap;
+}
+nav a {
+  padding: 15px 20px;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+nav a:hover { background: #2563eb; }
 
-    /* --- EDUCATION & PROJECTS --- */
-    ul { list-style:none; padding-left:0; }
-    li { margin-bottom:10px; }
+/* --- SECTIONS --- */
+section {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+section h2 {
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
 
-    /* --- SKILLS --- */
-    .skill { margin:10px 0; }
-    .skill-name { font-weight:bold; }
-    .skill-bar { height:15px; background:#ddd; border-radius:10px; overflow:hidden; }
-    .skill-bar-fill { height:100%; background:#1abc9c; width:0%; border-radius:10px; }
+/* --- EDUCATION & PROJECTS --- */
+ul { list-style: none; padding-left: 0; }
+li { margin-bottom: 12px; }
 
-    /* --- CONTACT --- */
-    .contact p { margin:5px 0; }
+/* --- PROJECTS SECTION --- */
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.project img {
+  width: 250px;
+  border-radius: 8px;
+  margin-right: 20px;
+  transition: transform 0.3s;
+}
+.project img:hover { transform: scale(1.05); }
+.project div { max-width: 600px; }
 
-    /* --- FOOTER --- */
-    footer { text-align:center; background:#2c3e50; color:white; padding:15px 0; margin-top:30px; }
+/* --- SKILLS --- */
+.skill { margin: 15px 0; }
+.skill-name { font-weight: bold; }
+.skill-bar { height: 18px; background: #e5e7eb; border-radius: 10px; overflow: hidden; }
+.skill-bar-fill {
+  height: 100%;
+  background: #3b82f6;
+  width: 0%;
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+}
+
+/* --- CERTIFICATES --- */
+.certificate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.certificate img {
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- CONTACT --- */
+.contact p { margin: 6px 0; }
+
+/* --- RESUME BUTTON --- */
+.resume-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+.resume-btn:hover { background: #2563eb; }
+
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  background: #1e3a8a;
+  color: white;
+  padding: 15px 0;
+  margin-top: 30px;
+}
+
+/* --- BACK TO TOP BUTTON --- */
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 1000;
+}
+#backToTop:hover { background: #2563eb; }
+
+/* --- SMOOTH SCROLL --- */
+html { scroll-behavior: smooth; }
+
+/* --- RESPONSIVE --- */
+@media(max-width: 768px){
+  .project img, .certificate img { width: 100%; margin-right: 0; }
+}
 </style>
-
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-    <img src="profile.jpg" alt="Profile Picture">
-    <h1>Angel Mia Daguinotas</h1>
-    <p>BSIT Student | Future IT Professional</p>
+  <img src="angelmia.profile.jpg" alt="Profile Picture">
+  <h1>Angel Mia Daguinotas</h1>
+  <p>BSIT Student | Aspiring Web Developer & IT Professional</p>
 </header>
 
 <!-- NAVIGATION -->
 <nav>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#certificates">Certificates</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I am a Bachelor of Science in Information Technology student. I enjoy web development, databases, and networking. This portfolio showcases my projects, education, and skills.</p>
+  <h2>About Me</h2>
+  <p>Hello! I am a Bachelor of Science in Information Technology student passionate about web development, database management, and network administration. I enjoy solving problems, learning new technologies, and building applications that make a difference.</p>
+  <p>I am currently focusing on improving my skills in HTML, CSS, JavaScript, MySQL, and networking tools. I am also active in school tech clubs and collaborative projects.</p>
+  <a href="resume.pdf" class="resume-btn" download>Download Resume</a>
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
-    <h2>Educational Attainment</h2>
-    <ul>
-        <li><strong>Bachelor of Science in Information Technology</strong><br>Colegio de San Francisco Javier | 2024 – Present</li>
-        <li><strong>Senior High School</strong><br>Sibutad National High School | 2018 – 2024</li>
-    </ul>
+  <h2>Education</h2>
+  <ul>
+    <li><strong>Bachelor of Science in Information Technology</strong><br>XYZ University | 2024 – Present<br>Dean’s List 2024, Focus: Web Development & Databases</li>
+    <li><strong>Senior High School (ICT Strand)</strong><br>Sibutad National High School | 2018 – 2024<br>Participated in programming competitions & tech club.</li>
+  </ul>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-        <li>Portfolio Website (GitHub Pages)</li>
-        <li>School Management System (MySQL + PHP)</li>
-        <li>Network Setup using Cisco Packet Tracer</li>
-    </ul>
+  <h2>Projects</h2>
+  <div class="project">
+    <img src="project1.jpg" alt="Portfolio Website">
+    <div>
+      <h3>Portfolio Website</h3>
+      <p>Created a personal portfolio using HTML, CSS, and GitHub Pages.</p>
+      <a href="https://yourusername.github.io" target="_blank">View Project</a>
+    </div>
+  </div>
+  <div class="project">
+    <img src="project2.jpg" alt="School Management System">
+    <div>
+      <h3>School Management System</h3>
+      <p>Database-driven system using MySQL and PHP for student management.</p>
+      <a href="#" target="_blank">View Project</a>
+    </div>
+  </div>
+  <div class="project">
+    <img src="project3.jpg" alt="Network Simulation">
+    <div>
+      <h3>Network Setup Simulation</h3>
+      <p>Designed a secure network configuration using Cisco Packet Tracer.</p>
+      <a href="#" target="_blank">View Project</a>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-    <h2>Skills</h2>
+  <h2>Skills</h2>
+  <div class="skill"><span class="skill-name">HTML / CSS</span>
+    <div class="skill-bar"><div class="skill-bar-fill" style="width:95%;"></div></div></div>
+  <div class="skill"><span class="skill-name">JavaScript</span>
+    <div class="skill-bar"><div class="skill-bar-fill" style="width:85%;"></div></div></div>
+  <div class="skill"><span class="skill-name">MySQL / Databases</span>
+    <div class="skill-bar"><div class="skill-bar-fill" style="width:90%;"></div></div></div>
+  <div class="skill"><span class="skill-name">Networking & Security</span>
+    <div class="skill-bar"><div class="skill-bar-fill" style="width:75%;"></div></div></div>
+  <div class="skill"><span class="skill-name">Teamwork & Communication</span>
+    <div class="skill-bar"><div class="skill-bar-fill" style="width:90%;"></div></div></div>
+</section>
 
-    <div class="skill">
-        <span class="skill-name">HTML / CSS</span>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width:90%;"></div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <span class="skill-name">JavaScript</span>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width:75%;"></div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <span class="skill-name">MySQL</span>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width:80%;"></div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <span class="skill-name">Networking</span>
-        <div class="skill-bar">
-            <div class="skill-bar-fill" style="width:70%;"></div>
-        </div>
-    </div>
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <h2>Certificates & Achievements</h2>
+  <div class="certificate">
+    <img src="cert1.jpg" alt="Certification 1">
+    <img src="cert2.jpg" alt="Certification 2">
+    <img src="cert3.jpg" alt="Certification 3">
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Email: angelmiadaguinotas24@gmail.com</p>
-    <p>Phone: 09307610586</p>
+  <h2>Contact</h2>
+  <p>Email: angelmia24@gmail.com</p>
+  <p>Phone:09307610586</p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+  <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    © 2026 Angel Mia Daguinotas
+  © 2026 Angel Mia Daguinotas
 </footer>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'});">↑</button>
+
+<script>
+// Animate skill bars
+window.addEventListener('scroll', () => {
+  const skills = document.querySelectorAll('.skill-bar-fill');
+  const trigger = window.innerHeight * 0.8;
+  skills.forEach(bar => {
+    const top = bar.getBoundingClientRect().top;
+    if(top < trigger){
+      bar.style.width = bar.style.width; 
+    }
+  });
+});
+
+// Show back-to-top button
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  if(window.scrollY > 300){ btn.style.display = 'block'; }
+  else{ btn.style.display = 'none'; }
+});
+</script>
 
 </body>
 </html>
